@@ -4,6 +4,7 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 let globalX = 0;
 let globalY = 0;
+let ran;
 
 init();
 
