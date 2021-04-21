@@ -53,11 +53,14 @@ function draw(time) {
 function swap(rects, a, b) {
   if (rects[b]) {
     if (rects[a].y > rects[b].y) {
+      //swap the values - tried to swap x but that keeps the "Line" in the same position and impacts when trying to compare the next set
       let tmp = rects[a];
       rects[a] = rects[b];
       rects[b] = tmp;
 
-      tmp_x = rects[a].x;
+
+      //swap the x position
+      let tmp_x = rects[a].x;
       rects[a].x = rects[b].x;
       rects[b].x = tmp_x;
     }
@@ -69,11 +72,10 @@ function Line(x, y, ctx, canvas) {
   this.y = y;
   this.ctx = ctx;
   this.drawLine = function () {
-    this.ctx.beginPath();
     this.ctx.stroke();
     this.ctx.fillStyle = "#FF0000AA";
     this.ctx.fillRect(this.x, this.y, rectWidth, canvas.height - this.y);
-    this.ctx.closePath();
+    //the height text
     this.ctx.save();
     this.ctx.translate(this.x, this.y);
     this.ctx.rotate((Math.PI * 1.5));
