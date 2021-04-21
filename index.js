@@ -53,7 +53,9 @@ function draw(time) {
 function swap(rects, a, b) {
   if (rects[b]) {
     if (rects[a].y > rects[b].y) {
-      //swap the values - tried to swap x but that keeps the "Line" in the same position and impacts when trying to compare the next set
+      //swap the Line objects 
+      //tried to swap x but that keeps the "Line" Object in the same position 
+      //and doesnt sort correctly at next comparison because we're swapping x but not moving the object
       let tmp = rects[a];
       rects[a] = rects[b];
       rects[b] = tmp;
